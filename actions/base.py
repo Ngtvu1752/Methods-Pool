@@ -1,5 +1,6 @@
 from abc import ABC, abstractmethod
 from dataclasses import dataclass
+from inspect import Parameter
 from typing import Any
 
 
@@ -9,7 +10,7 @@ class ActionParam:
 
     name: str
     type: type
-    default: Any = None
+    default: Any = Parameter.empty
     description: str = ""
 
 

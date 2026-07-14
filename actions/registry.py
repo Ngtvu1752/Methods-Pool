@@ -1,3 +1,5 @@
+from inspect import Parameter
+
 from actions.base import ActionParam, BaseAction
 
 
@@ -147,7 +149,7 @@ class ActionRegistry:
         return {
             "name": param.name,
             "type": getattr(param.type, "__name__", str(param.type)),
-            "default": param.default,
-            "required": param.default is None,
+            "default": None if param.default is Parameter.empty else param.default,
+            "required": param.default is Parameter.empty,
             "description": param.description,
         }
