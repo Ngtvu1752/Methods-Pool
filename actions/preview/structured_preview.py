@@ -1,6 +1,6 @@
 from typing import Any
 
-from actions.base import BaseAction
+from actions.base import ActionParam, BaseAction
 from actions.registry import register_action
 from models import StructuredDataset
 
@@ -8,6 +8,15 @@ from models import StructuredDataset
 @register_action
 class StructuredPreviewAction(BaseAction):
     name = "preview"
+    description = "Preview rows from an approved structured dataset."
+    params = (
+        ActionParam(
+            name="limit",
+            type=int,
+            default=20,
+            description="Maximum number of sample rows to return.",
+        ),
+    )
     supported_dataset_types = (StructuredDataset,)
 
     def execute(

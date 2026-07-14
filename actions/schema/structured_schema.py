@@ -8,6 +8,8 @@ from models import StructuredDataset
 @register_action
 class StructuredSchemaAction(BaseAction):
     name = "schema"
+    description = "Return schema information inferred from a structured dataset sample."
+    params = ()
     supported_dataset_types = (StructuredDataset,)
 
     def execute(
