@@ -1,0 +1,15 @@
+services:
+  methods-hub:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    image: methods-hub:latest
+    environment:
+      DATA_LAKE_ROOT: /app/Data-Lake
+      MCP_TRANSPORT: streamable-http
+      MCP_HOST: 0.0.0.0
+      MCP_PORT: 8000
+    ports:
+      - "8000:8000"
+    volumes:
+      - ../Data-Lake:/app/Data-Lake:ro

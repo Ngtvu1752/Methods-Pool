@@ -1,7 +1,7 @@
 from mcp.server.fastmcp import FastMCP
 
 from catalog import DataLakeCatalog
-from config import DATA_LAKE_ROOT
+from config import DATA_LAKE_ROOT, MCP_HOST, MCP_PORT, MCP_TRANSPORT
 from hub import DataLakeHub
 import actions  # Import side effects register available actions.
 import readers  # Import side effects register available readers.
@@ -9,7 +9,7 @@ from actions.registry import ActionRegistry
 from tools import build_all_tools
 
 
-mcp = FastMCP("data-lake")
+mcp = FastMCP("data-lake", host=MCP_HOST, port=MCP_PORT)
 
 catalog = DataLakeCatalog(root_path=DATA_LAKE_ROOT)
 hub = DataLakeHub(catalog=catalog)
@@ -69,7 +69,7 @@ for tool_func in build_all_tools(hub):
 
 
 def main():
-    mcp.run(transport="stdio")
+    mcp.run(transport=MCP_TRANSPORT)
 
 
 if __name__ == "__main__":
