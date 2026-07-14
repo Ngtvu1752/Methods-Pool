@@ -1,5 +1,19 @@
-from actions.aggregate.statistics import StructuredColumnStatisticsAction
+from actions.aggregate.statistics import (
+    StructuredColumnAverageAction,
+    StructuredColumnMaxAction,
+    StructuredColumnMedianAction,
+    StructuredColumnMinAction,
+    StructuredColumnPercentileAction,
+    StructuredColumnProfileAction,
+    StructuredColumnSumAction,
+)
 
 __all__ = [
-    "StructuredColumnStatisticsAction",
+    "StructuredColumnAverageAction",
+    "StructuredColumnMaxAction",
+    "StructuredColumnMedianAction",
+    "StructuredColumnMinAction",
+    "StructuredColumnPercentileAction",
+    "StructuredColumnProfileAction",
+    "StructuredColumnSumAction",
 ]
